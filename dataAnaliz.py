@@ -79,6 +79,19 @@ plt.title("📊 Covid-19 vs Eğitim Arama Trendleri - Çapraz Korelasyon Analizi
 plt.legend()
 plt.show(block=False)
 
+# 8.5 Korelasyon Isı Haritası (Heatmap)
+
+import seaborn as sns  # seaborn importu başta da ekleyebilirsin.
+
+# Sadece analiz ettiğimiz sütunlardan korelasyon matrisi çıkar
+correlation_matrix = df_merged[["hits_covid", "hits_education"]].corr()
+
+# Heatmap çizimi
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+plt.title('📊 Covid-19 ve Eğitim Aramaları Korelasyon Isı Haritası', fontsize=14)
+plt.show(block=False)
+
 # 9. Zaman Serisi Analizi - Prophet Modeli (Education Aramaları için)
 df_prophet = df_merged[["date", "hits_education"]].rename(columns={"date": "ds", "hits_education": "y"})
 model = Prophet()
