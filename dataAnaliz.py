@@ -77,7 +77,7 @@ plt.xlabel("Gecikme (Lag) Haftaları")
 plt.ylabel("Çapraz Korelasyon Değeri")
 plt.title("📊 Covid-19 vs Eğitim Arama Trendleri - Çapraz Korelasyon Analizi")
 plt.legend()
-plt.show()
+plt.show(block=False)
 
 # 9. Zaman Serisi Analizi - Prophet Modeli (Education Aramaları için)
 df_prophet = df_merged[["date", "hits_education"]].rename(columns={"date": "ds", "hits_education": "y"})
